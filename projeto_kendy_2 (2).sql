@@ -36,7 +36,7 @@ CREATE TABLE `aluno` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `aluno`
+-- Despejando dados para a tabela `aluno` (todos os nomes são referências á filhos da Big Mom de One Piece)
 --
 
 INSERT INTO `aluno` (`cpf`, `rm`, `nome`, `FK_turma_id`, `FK_projeto_id`) VALUES
@@ -96,7 +96,7 @@ CREATE TABLE `projetos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `projetos`
+-- Despejando dados para a tabela `projetos` (projetos legais que eu acho engraçado ou interessantes)
 --
 
 INSERT INTO `projetos` (`id`, `titulo`) VALUES
