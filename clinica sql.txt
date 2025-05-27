@@ -18,3 +18,52 @@ CREATE TABLE animal (
   Idade_animal INT(3),
   Alergia_animal BOOL NOT NULL
 );
+
+CREATE TABLE cliente (
+  CPF_cliente VARCHAR(11) NOT NULL PRIMARY KEY,
+  Nome_cliente VARCHAR(30) NOT NULL,
+  Endereco_cliente VARCHAR(50),
+  Telefone_cliente INT(13),
+  Celular_cliente INT(13) NOT NULL,
+  FK_Id_animal INT(6) NOT NULL,
+  FOREIGN KEY (FK_Id_animal) REFERENCES animal(ID_animal)
+);
+
+CREATE TABLE consulta (
+  ID_consulta INT(10) AUTO_INCREMENT PRIMARY KEY,
+  Data_consulta DATE NOT NULL,
+  Horario_consulta TIME NOT NULL,
+  Valor_consulta FLOAT(6,2) NOT NULL,
+  Diagnostico_consulta VARCHAR(200) NOT NULL,
+  FK_CRV_veterinario VARCHAR(6) NOT NULL,
+  FK_CPF_cliente VARCHAR(11) NOT NULL,
+  FK_ID_animal INT(6) NOT NULL,
+  FOREIGN KEY (FK_CRV_veterinario) REFERENCES veterinario(CRV_veterinario),
+  FOREIGN KEY (FK_CPF_cliente) REFERENCES cliente(CPF_cliente),
+  FOREIGN KEY (FK_Id_animal) REFERENCES animal(ID_animal)
+);
+
+CREATE TABLE herbivoro (
+  ID_animal_herbivoro INT(6) AUTO_INCREMENT,
+  Peso_herbivoro FLOAT(6,2) NOT NULL,
+  Altura_herbivoro FLOAT(4,2) NOT NULL,
+  FK_ID_animal INT(6) NOT NULL,
+  FOREIGN KEY (FK_ID_animal) REFERENCES animal(ID_animal)
+);
+
+CREATE TABLE carnivoro (
+  ID_animal_carnivoro INT(6) AUTO_INCREMENT,
+  Peso_carnivoro FLOAT(6,2) NOT NULL,
+  Altura_carnivoro FLOAT(4,2) NOT NULL,
+  FK_ID_animal INT(6) NOT NULL,
+  FOREIGN KEY (FK_ID_animal) REFERENCES animal(ID_animal)
+);
+
+CREATE TABLE onivoro (
+  ID_animal_onivoro INT(6) AUTO_INCREMENT,
+  Peso_onivoro FLOAT(6,2) NOT NULL,
+  Altura_onivoro FLOAT(4,2) NOT NULL,
+  FK_ID_animal INT(6) NOT NULL,
+  FOREIGN KEY (FK_ID_animal) REFERENCES animal(ID_animal)
+);
+
