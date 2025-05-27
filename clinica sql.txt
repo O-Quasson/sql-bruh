@@ -1,0 +1,20 @@
+CREATE DATABASE clinica_vet;
+
+USE clinica_vet;
+
+CREATE TABLE veterinario (
+  CRV_veterinario VARCHAR(6) NOT NULL PRIMARY KEY,
+  CPF_veterinario INT(11) NOT NULL,
+  Nome_veterinario VARCHAR(50) NOT NULL,
+  Endereco_veterinario VARCHAR(50) NOT NULL,
+  Celular_veterinario INT(9) NOT NULL
+);
+
+CREATE TABLE animal (
+  ID_animal INT(6) NOT NULL PRIMARY KEY,
+  Nome_animal VARCHAR(20),
+  Tipo_animal VARCHAR(10) NOT NULL,
+  Raca_animal VARCHAR(15),
+  Idade_animal INT(3),
+  Alergia_animal BOOL NOT NULL
+);
