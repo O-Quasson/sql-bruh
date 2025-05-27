@@ -44,7 +44,7 @@ CREATE TABLE consulta (
 );
 
 CREATE TABLE herbivoro (
-  ID_animal_herbivoro INT(6) AUTO_INCREMENT,
+  ID_animal_herbivoro INT(6) AUTO_INCREMENT PRIMARY KEY,
   Peso_herbivoro FLOAT(6,2) NOT NULL,
   Altura_herbivoro FLOAT(4,2) NOT NULL,
   FK_ID_animal INT(6) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE herbivoro (
 );
 
 CREATE TABLE carnivoro (
-  ID_animal_carnivoro INT(6) AUTO_INCREMENT,
+  ID_animal_carnivoro INT(6) AUTO_INCREMENT PRIMARY KEY,
   Peso_carnivoro FLOAT(6,2) NOT NULL,
   Altura_carnivoro FLOAT(4,2) NOT NULL,
   FK_ID_animal INT(6) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE carnivoro (
 );
 
 CREATE TABLE onivoro (
-  ID_animal_onivoro INT(6) AUTO_INCREMENT,
+  ID_animal_onivoro INT(6) AUTO_INCREMENT PRIMARY KEY,
   Peso_onivoro FLOAT(6,2) NOT NULL,
   Altura_onivoro FLOAT(4,2) NOT NULL,
   FK_ID_animal INT(6) NOT NULL,
