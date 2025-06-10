@@ -1,0 +1,13 @@
+1) SELECT cliente.Nome_cliente FROM animal, cliente WHERE animal.Idade_animal>5 AND animal.FK_CPF_cliente=cliente.CPF_cliente;
+
+2) SELECT animal.Nome_animal FROM animal, veterinario, consulta WHERE veterinario.CRV_veterinario=consulta.FK_CRV_veterinario AND consulta.FK_ID_animal=animal.ID_animal AND veterinario.Nome_veterinario='Enéias';
+
+3) SELECT animal.Nome_animal FROM animal WHERE animal.Alergia_animal=1;
+
+4) SELECT animal.Nome_animal, animal.Tipo_animal, animal.Idade_animal FROM animal WHERE animal.Alergia_animal=1;
+
+5) SELECT veterinario.Nome_veterinario, veterinario.CRV_veterinario FROM veterinario;
+
+6) SELECT consulta.ID_consulta, consulta.Diagnostico_consulta FROM consulta WHERE consulta.Valor_consulta>500.00;
+
+7) SELECT animal.Nome_animal, consulta.Diagnostico_consulta FROM animal, consulta WHERE consulta.Valor_consulta>500.00 AND consulta.FK_ID_animal=animal.ID_animal;
