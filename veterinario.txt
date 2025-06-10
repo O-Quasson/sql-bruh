@@ -1,0 +1,63 @@
+CREATE DATABASE veterinario;
+
+USE DATABSE veterinario;
+
+CREATE TABLE veterinario (
+  CRV_veterinario VARCHAR(5) NOT NULL PRIMARY KEY,
+  Nome_veterinario VARCHAR(100) NOT NULL,
+  End_veterinario VARCHAR(100) NOT NULL,
+  Cel_veterinario VARCHAR(9) NOT NULL,
+  CPF_veterinario CHAR(11) NOT NULL
+);
+
+CREATE TABLE cliente (
+  CPF_cliente CHAR(11) NOT NULL PRIMARY KEY,
+  Nome_cliente VARCHAR(30) NOT NULL,
+  End_cliente VARCHAR(100) NOT NULL,
+  Tel_cliente CHAR(10),
+  Cel_cliente CHAR(11) NOT NULL,
+);
+
+ CREATE TABLE animal (
+  ID_animal INT(11) NOT NULL PRIMARY KEY,
+  Nome_animal VARCHAR(50),
+  Tipo_animal VARCHAR(30) NOT NULL,
+  Raca_animal VARCHAR(50),
+  Idade_animal INT(3),
+  Alergia_animal TINYINT(1) NOT NULL,
+  FK_CPF_cliente CHAR(11) NOT NULL,
+  FOREIGN KEY (FK_CPF_cliente) REFERENCE cliente(CPF_cliente)
+);
+
+CREATE TABLE consulta (
+  ID_consulta INT(11) AUTO_INCREMENT PRIMARY KEY,
+  Data_consulta DATE NOT NULL,
+  Horario_consulta TIME NOT NULL,
+  Valor_consulta DECIMAL(8,2) NOT NULL,
+  Diagnostico_consulta VARCHAR(150) NOT NULL,
+  FK_ID_animal INT(11) NOT NULL,
+  FK_CRV_veterinario VARCHAR(5) NOT NULL,
+  FOREIGN KEY (FK_Id_animal) REFERENCES animal(ID_animal),
+  FOREIGN KEY (FK_CRV_veterinario) REFERENCES veterinario(CRV_veterinario)
+);
+
+CREATE TABLE animal_herbivoro (
+  ID_animal_herbivoro INT(11) PRIMARY KEY ,
+  Peso_herbivoro DECIMAL(6,2) NOT NULL,
+  Altura_herbivoro DECIMAL(4,2) NOT NULL,
+  FOREIGN KEY (ID_animal_herbivoro) REFERENCES animal(ID_animal)
+);
+
+CREATE TABLE animal_carnivoro (
+  ID_animal_carnivoro INT(11) PRIMARY KEY ,
+  Peso_carnivoro DECIMAL(6,2) NOT NULL,
+  Altura_carnivoro DECIMAL(4,2) NOT NULL,
+  FOREIGN KEY (ID_animal_carnivoro) REFERENCES animal(ID_animal)
+);
+
+CREATE TABLE animal_onivoro (
+  ID_animal_onivoro INT(11) PRIMARY KEY ,
+  Peso_onivoro DECIMAL(6,2) NOT NULL,
+  Altura_onivoro DECIMAL(4,2) NOT NULL,
+  FOREIGN KEY (ID_animal_onivoro) REFERENCES animal(ID_animal)
+);
