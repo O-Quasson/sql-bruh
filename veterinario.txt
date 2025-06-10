@@ -61,3 +61,71 @@ CREATE TABLE animal_onivoro (
   Altura_onivoro DECIMAL(4,2) NOT NULL,
   FOREIGN KEY (ID_animal_onivoro) REFERENCES animal(ID_animal)
 );
+
+
+
+INSERT INTO veterinario (CRV_veterinario, Nome_veterinario, End_veterinario, Cel_veterinario, CPF_veterinario) VALUES
+('V0001', 'Dr. Enéias Carvalho', 'Rua Alfa, 100', '999887766', '11111111111'),
+('V0002', 'Dra. Carla Dias', 'Av. Beta, 200', '988776655', '22222222222'),
+('V0003', 'Dr. João Souza', 'Rua Gama, 300', '977665544', '33333333333'),
+('V0004', 'Dra. Renata Lima', 'Rua Delta, 400', '966554433', '44444444444'),
+('V0005', 'Dr. Rafael Melo', 'Av. Épsilon, 500', '955443322', '55555555555'),
+('V0006', 'Dra. Silvia Torres', 'Rua Zeta, 600', '944332211', '66666666666'),
+('V0007', 'Dr. Marcos Reis', 'Rua Eta, 700', '933221100', '77777777777'),
+('V0008', 'Dra. Helena Rocha', 'Av. Theta, 800', '922110099', '88888888888'),
+('V0009', 'Dr. André Borges', 'Rua Iota, 900', '911009988', '99999999999'),
+('V0010', 'Dra. Paula Nunes', 'Rua Kappa, 1000', '900998877', '00000000000');
+
+INSERT INTO cliente (CPF_cliente, Nome_cliente, End_cliente, Tel_cliente, Cel_cliente) VALUES
+('11122233344', 'Luciana Alves', 'Rua das Rosas, 45', '1133224455', '9999988888'),
+('22233344455', 'Carlos Mendes', 'Av. Central, 123', '1122334455', '9888877777'),
+('33344455566', 'Fernanda Lima', 'Rua Bela Vista, 67', '1177889966', '9777766666'),
+('44455566677', 'José Eduardo', 'Rua Magnolia, 89', '1144556677', '9666655555'),
+('55566677788', 'Tatiane Moraes', 'Av. Liberdade, 45', '1133994455', '9555544444'),
+('66677788899', 'Rodrigo Silva', 'Rua do Sol, 22', '1155667788', '9444433333'),
+('77788899900', 'Ana Clara', 'Rua Nova, 33', '1177665544', '9333322222'),
+('88899900011', 'Gustavo Cunha', 'Av. Maracanã, 11', '1166554433', '9222211111'),
+('99900011122', 'Bianca Souza', 'Rua Vitória, 90', '1155778899', '9111100000'),
+('00011122233', 'Fábio Ribeiro', 'Av. Paulista, 1000', '1144667788', '9000099999');
+
+INSERT INTO animal (ID_animal, Nome_animal, Tipo_animal, Raca_animal, Idade_animal, Alergia_animal, FK_CPF_cliente) VALUES
+(1, 'Luna', 'Herbívoro', 'Coelho', 2, 0, '11122233344'),
+(2, 'Thor', 'Carnívoro', 'Pastor Alemão', 5, 1, '22233344455'),
+(3, 'Milo', 'Onívoro', 'Porco', 3, 0, '33344455566'),
+(4, 'Bela', 'Herbívoro', 'Cavalo', 7, 0, '44455566677'),
+(5, 'Rex', 'Carnívoro', 'Doberman', 4, 1, '55566677788'),
+(6, 'Lulu', 'Onívoro', 'Ursinho', 6, 0, '66677788899'),
+(7, 'Max', 'Herbívoro', 'Vaca', 3, 0, '77788899900'),
+(8, 'Fera', 'Carnívoro', 'Tigre', 6, 1, '88899900011'),
+(9, 'Pingo', 'Onívoro', 'Texugo', 2, 0, '99900011122'),
+(10, 'Cacau', 'Carnívoro', 'Gato', 1, 1, '00011122233');
+
+INSERT INTO consulta (ID_consulta, Data_consulta, Horario_consulta, Valor_consulta, Diagnostico_consulta, FK_ID_animal, FK_CRV_veterinario) VALUES
+(1, '2025-06-01', '09:00:00', 520.00, 'Check-up anual', 1, 'V0001'),
+(2, '2025-06-03', '10:30:00', 480.00, 'Vacinação antirrábica', 2, 'V0002'),
+(3, '2025-06-05', '14:00:00', 300.00, 'Alergia detectada', 3, 'V0003'),
+(4, '2025-06-06', '08:30:00', 700.00, 'Exame completo', 4, 'V0004'),
+(5, '2025-06-07', '15:00:00', 120.00, 'Vermifugação', 5, 'V0005'),
+(6, '2025-06-08', '11:15:00', 200.00, 'Consulta geral', 6, 'V0006'),
+(7, '2025-06-09', '09:45:00', 550.00, 'Cirurgia menor', 7, 'V0007'),
+(8, '2025-06-10', '13:20:00', 135.00, 'Avaliação pré-natal', 8, 'V0008'),
+(9, '2025-06-11', '10:00:00', 95.00, 'Limpeza dentária', 9, 'V0009'),
+(10, '2025-06-12', '16:10:00', 620.00, 'Tratamento intensivo', 10, 'V0010');
+
+INSERT INTO animal_herbivoro (ID_animal_herbivoro, Peso_herbivoro, Altura_herbivoro) VALUES
+(1, 2.50, 0.30),
+(4, 400.00, 1.80),
+(7, 350.00, 1.60);
+
+INSERT INTO animal_carnivoro (ID_animal_carnivoro, Peso_carnivoro, Altura_carnivoro) VALUES
+(2, 30.00, 0.90),
+(5, 40.00, 0.95),
+(8, 120.00, 1.10),
+(10, 4.50, 0.35);
+
+INSERT INTO animal_onivoro (ID_animal_onivoro, Peso_onivoro, Altura_onivoro) VALUES
+(3, 50.00, 0.75),
+(6, 60.00, 1.00),
+(9, 10.00, 0.50);
+
+
